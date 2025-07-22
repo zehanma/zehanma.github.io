@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Zehan Ma</title>
+
+    <!-- Usual metadata. -->
+    <meta name="author" content="Zehan Ma">
+    <meta charset="UTF-8" />
+    <link href="./assets/sunset_small.jpeg" rel="shortcut icon" type="image/x-icon" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+
+    <!-- Webfont. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles. -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body>
+    <div style="height: 4em"></div>
+    <section
+      style="
+        display: flex;
+        align-items: start;
+        gap: 2em 1.5em;
+        flex-wrap: wrap-reverse;
+      "
+    >
+      <div style="flex-grow: 1; flex-basis: 20em">
+        <h1>Zehan Ma</h1>
+        <p>
+          I recently completed my B.S. and M.S. in EECS at <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I was advised by Professor <a href="https://goldberg.berkeley.edu/">Ken Goldberg</a>. 
+        </p>
+        <p>
+          I'm broadly interested in robot manipulation, robot learning, and 3D computer vision, with a focus on building generalizable and scalable robotic systems that can learn from diverse data and interact effectively in open-ended environments.
+        </p>
+        <p>
+          <a href="mailto:zehanma@berkeley.edu">Email</a>
+          &nbsp;/&nbsp;
+          <a href="https://scholar.google.com/citations?user=oA0Xv64AAAAJ&hl=en">Google Scholar</a>
+          &nbsp;/&nbsp;
+          <a href="https://www.linkedin.com/in/zehanma/">LinkedIn</a>
+        </p>
+      </div>
+      <div style="display: block">
+        <img
+          src="./assets/zehan2.jpg"
+          alt="A photo of the author"
+          style="
+        width: 20em;
+        height: auto;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 5%;
+          "
+        />
+      </div>
+    </section>
+    
+    <section>
+      <h2>Research</h2>
+
+      <!-- Paper list will be dynamically generated here -->
+      <ul id="paper-list" style="margin-top: 1em" data-show-recent="false"></ul>
+
+      <!-- Generate paper list. -->
+      <script>
+        const papers = [
+        {
+            previewSrc: "./assets/robo2vlm_pipeline.png",
+            title: "Robo2VLM: Visual Question Answering from Large-Scale In-the-Wild Robot Manipulation Datasets",
+            authors: [
+              "Kaiyuan Chen*",
+              "Shuangyu Xie*",
+              "Zehan Ma",
+              "Pannag Sanketi",
+              "Ken Goldberg",
+              "Ken Goldberg",
+            ],
+            conference: "Under Review",
+            links: [
+              { text: "Website", url: "https://berkeleyautomation.github.io/robo2vlm/" },
+              { text: "arXiv", url: "https://arxiv.org/pdf/2505.15517" },
+            ],
+            summary: "Robo2VLM is a large-scale in-the-wild dataset with 684,710 questions covering 463 distinct scenes and 3,396 robotic manipulation tasks from 176k real robot trajectories.",
+            highlighted: false,
+            recent: true,
+            new: true,
+          },
+          {
+            previewSrc: "./assets/omniscan.mp4",
+            title: "Omni-Scan: Creating Visually-Accurate Digital Twin Object Models Using a Bimanual Robot with Handoff and Gaussian Splat Merging",
+            authors: [
+              "Tianshuang Qiu*",
+              "Zehan Ma*",
+              "Karim El-Refai*",
+              "Hiya Shah",
+              "Justin Kerr",
+              "Chung Min Kim",
+              "Ken Goldberg",
+            ],
+            conference: "IROS 2025, Oral Presentation",
+            links: [
+              { text: "Website", url: "https://berkeleyautomation.github.io/omni-scan/" },
+              // { text: "arXiv", url: "https://arxiv.org/abs/2505.10000" },
+            ],
+            summary: "Omni-Scan uses a bimanual robot to pick up and scan objects from multiple viewpoints, then it hands off the object to the other arm getting views of previously occluded points. These scans are then merged into a single, visually-accurate 3DGS model.",
+            highlighted: false,
+            recent: true,
+            new: true,
+          },
+          {
+            previewSrc: "./assets/bloxnet.mp4",
+            title: "Blox-Net: Generative Design-for-Robot-Assembly Using VLM Supervision, Physics Simulation, and a Robot with Reset",
+            authors: [
+              "Andrew Goldberg",
+              "Kavish Kondap",
+              "Tianshuang Qiu",
+              "Zehan Ma",
+              "Letian Fu",
+              "Justin Kerr",
+              "Huang Huang",
+              "Kaiyuan Chen",
+              "Kuan Fang",
+              "Ken Goldberg",
+            ],
+            conference: "ICRA 2025",
+            links: [
+              { text: "Website", url: "https://bloxnet.org/" },
+              { text: "arXiv", url: "https://arxiv.org/pdf/2409.17126?" },
+            ],
+            summary: "Blox-Net iteratively prompts a VLM with a simulation in-the-loop to generate designs based on a text prompt using a set of blocks and assembles them with a real robot!",
+            highlighted: false,
+            recent: true,
+            new: false,
+          },
+          {
+            previewSrc: "./assets/open_x_embodiment.mp4",
+            title: "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+            authors: [
+              // "Open X-Embodiment Collaboration"
+            ],
+
+            conference: 'ICRA 2024 (<span style="color: red; font-weight: bold; background: yellow; padding: 0 0.2em; border-radius: 0.2em;">Best Paper Award</span>)',
+            links: [
+              { text: "Website", url: "https://robotics-transformer-x.github.io/" },
+              { text: "arXiv", url: "https://arxiv.org/pdf/2310.08864" },
+            ],
+            summary: "We introduce the Open X-Embodiment Dataset, the largest open-source real robot dataset to date. We train two models on the robotics data mixture: RT-1-X and RT-2-X.",
+            highlighted: false,
+            recent: true,
+            new: false,
+          },
+          {
+            previewSrc: "./assets/droid.mp4",
+            title: "DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset",
+            authors: [
+              // "Zeeshan Patel*",
+              // "Karim El-Refai*",
+              // "Jonathan Pei*",
+              // "Tianle Li",
+            ],
+            conference: "Robotics: Science and Systems (RSS), 2024 ",
+            links: [
+              { text: "Website", url: "https://droid-dataset.github.io/" },
+              { text: "arXiv", url: "https://arxiv.org/pdf/2403.12945" },
+            ],
+            summary: "A dataset that contains 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 84 tasks by 50 data collectors over the course of 12 months.",
+            recent: true,
+            new: false,
+          },
+          {
+            previewSrc: "./assets/gasket.mp4",
+            title: "Automating Deformable Gasket Assembly",
+            authors: [
+              "Simeon Adebola*",
+              "Tara Sadjadpour*",
+              "Karim El-Refai*",
+              "Will Panitch",
+              "Zehan Ma",
+              "Roy Lin",
+              "Tianshuang Qiu",
+              "Shreya Ganti",
+              "Charlotte Le",
+              "Jaimyn Drake",
+              "Ken Goldberg",
+            ],
+            conference: "CASE 2024",
+            links: [
+              { text: "Website", url: "https://berkeleyautomation.github.io/robot-gasket/" },
+              { text: "arXiv", url: "https://arxiv.org/abs/2408.12593" },
+            ],
+            summary: "Research on automating the assembly of deformable gaskets.",
+            highlighted: false,
+            recent: true,
+            new: false,
+          },
+        ];
+        function generatePaperList() {
+          const paperList = document.getElementById("paper-list");
+          papers.forEach((paper) => {
+            const li = document.createElement("li");
+            if (paper.highlighted) {
+              li.classList.add("paper-highlighted");
+            }
+            if (paper.recent) {
+              li.classList.add("paper-recent");
+            }
+            li.classList.add("paper");
+            li.innerHTML = `
+              ${
+                paper.previewSrc.endsWith(".mp4")
+                  ? `<video class="paper-visual" src="${paper.previewSrc}" loop muted autoplay playsinline></video>`
+                  : `<img class="paper-visual" src="${paper.previewSrc}" alt="${paper.title}">`
+              }
+              <div class="paper-textual">
+                <h3>
+                  ${paper.title}
+                  ${paper.new ? '<img src="./assets/new_animated.gif" alt="Blinking icon that says \'new\'." />' : ""}
+                </h3>
+                <div style="height: 0.1em"></div>
+                ${
+                  ["Open X-Embodiment: Robotic Learning Datasets and RT-X Models", "DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset"].includes(paper.title)
+                    ? `<span style="opacity: 0.75; font-style: italic;">Authors omitted due to large collaboration.</span><br>`
+                    : paper.authors
+                        .map((author) => {
+                          const names = author.split(" ");
+                          const firstName = names.slice(0, -1).join("&nbsp;");
+                          const lastName = names[names.length - 1];
+                          const formattedName = `${firstName}&nbsp;${lastName}`;
+                          return author.startsWith("Zehan Ma")
+                            ? `<strong>${formattedName}</strong>`
+                            : formattedName;
+                        })
+                        .join(", ") + ".<br>"
+                }
+                <span style="font-weight: 450">${paper.conference.replace("Oral Presentation", '<span style="color: red;font-weight: bold; background: yellow;">Oral Presentation</span>')}</span>
+
+                <div style="height: 0.375em"></div>
+                ${paper.links
+                  .map((link) => `<a href="${link.url}">${link.text}</a>`)
+                  .join(" / ")}
+                <div style="height: 0.375em"></div>
+                <em style="opacity: 0.625">${paper.summary}</em>
+              </div>
+            `;
+            paperList.appendChild(li);
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", generatePaperList);
+
+
+      </script>
+    </section>
+
+   
+
+    <!-- Lightbox container -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+      <button class="lightbox-arrow left" onclick="navigateImage(-1, event)">❮</button>
+      <img id="lightbox-img" src="" alt="Full size image">
+      <button class="lightbox-arrow right" onclick="navigateImage(1, event)">❯</button>
+    </div>
+
+    <script>
+      let currentImageIndex = 0;
+      const galleryImages = document.querySelectorAll('.gallery-item img');
+
+      function openLightbox(element) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const img = element.querySelector('img');
+        
+        // Find the index of the clicked image
+        currentImageIndex = Array.from(galleryImages).indexOf(img);
+        
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+
+      function closeLightbox(event) {
+        // Only close if clicking the background, not the image or arrows
+        if (event.target.classList.contains('lightbox')) {
+          const lightbox = document.getElementById('lightbox');
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+      }
+
+      function navigateImage(direction, event) {
+        event.stopPropagation(); // Prevent closing when clicking arrows
+        
+        currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+      }
+
+      // Close lightbox with escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeLightbox({ target: document.getElementById('lightbox') });
+        } else if (event.key === 'ArrowLeft') {
+          navigateImage(-1, { stopPropagation: () => {} });
+        } else if (event.key === 'ArrowRight') {
+          navigateImage(1, { stopPropagation: () => {} });
+        }
+      });
+    </script>
+
+    <div style="height: 1em"></div>
+    <section>
+      <em style="color: #777">
+        Website design borrows from
+        <a href="https://el-refai.github.io/">Karim El-Refai</a> and
+        <a href="https://jonbarron.info/">Jon Barron</a> and
+        <a href="https://brentyi.github.io/">Brent Yi</a>.
+      </em>
+    </section>
+    <div style="height: 2em"></div>
+  </body>
+</html>

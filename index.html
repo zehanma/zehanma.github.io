@@ -79,6 +79,31 @@
       <script>
         const papers = [
         {
+            previewSrc: "./assets/OXE-AugE.png",
+            title: "OXE-AugE: A Large-Scale Robot Augmentation of OXE for Scaling Cross-Embodiment Policy Learning",
+            authors: [
+              "Guanhua Ji*",
+              "Harsha Polavaram*",
+              "Lawrence Yunliang Chen*",
+              "Sandeep Bajamahal",
+              "Zehan Ma",
+              "Simeon Adebola",
+              "Chenfeng Xu",
+              "Ken Goldberg"
+            ],
+            conference: "Under Review",
+            links: [
+              { text: "Website", url: "https://oxe-auge.github.io/" },
+              { text: "paper", url: "https://oxe-auge.github.io/static/OXE-AugE.pdf" },
+              { text:"dataset", url: "https://huggingface.co/oxe-auge"},
+              { text:"video", url:"https://www.youtube.com/watch?v=Nj0XP6ujhBE"},
+            ],
+            summary: "We study how scaling robot augmentation impacts cross-embodiment learning and introduce OXE-AugE, a large-scale augmented version of the Open X-Embodiment dataset. Augmenting demonstrations across robot embodiments improves policy generalization to unseen robots, achieving 24–45% higher success on real-world manipulation tasks.",
+            highlighted: false,
+            recent: true,
+            new: true,
+          },
+        {
             previewSrc: "./assets/robo2vlm_pipeline.png",
             title: "Robo2VLM: Visual Question Answering from Large-Scale In-the-Wild Robot Manipulation Datasets",
             authors: [
@@ -87,14 +112,36 @@
               "Zehan Ma",
               "Pannag Sanketi",
               "Ken Goldberg",
-              "Ken Goldberg",
             ],
-            conference: "Under Review",
+            conference: "NeurIPS 2025, Spotlight",
             links: [
               { text: "Website", url: "https://berkeleyautomation.github.io/robo2vlm/" },
               { text: "arXiv", url: "https://arxiv.org/pdf/2505.15517" },
+              { text: "dataset", url: "https://huggingface.co/datasets/keplerccc/Robo2VLM-1"},
+              { text: "code", url: "https://github.com/KeplerC/robo2VLM"},
             ],
             summary: "Robo2VLM is a large-scale in-the-wild dataset with 684,710 questions covering 463 distinct scenes and 3,396 robotic manipulation tasks from 176k real robot trajectories.",
+            highlighted: false,
+            recent: true,
+            new: true,
+          },
+        {
+            previewSrc: "./assets/bag.gif",
+            title: "MonoDuo: Using One Robot Arm to Learn Bimanual Policies",
+            authors: [
+              "Sandeep Bajamahal*",
+              "Lawrence Yunliang Chen*",
+              "Toru Lin",
+              "Zehan Ma",
+              "Jitendra Malik",
+              "Ken Goldberg",
+            ],
+            conference: "ICRA 2026",
+            links: [
+              { text: "Website", url: "https://bimanual-monoduo.github.io/" },
+              { text: "video", url: "https://www.youtube.com/watch?v=xKHaYtt0Lr4"},
+            ],
+            summary: "We study how to learn bimanual robot policies without relying on scarce bimanual robots or datasets. Our framework, MonoDuo, uses single-arm robot demonstrations paired with human collaboration and augments them into synthetic bimanual data using pose estimation and segmentation. This enables up to 70% zero-shot success on unseen bimanual robots.",
             highlighted: false,
             recent: true,
             new: true,
@@ -114,7 +161,7 @@
             conference: "IROS 2025, Oral Presentation",
             links: [
               { text: "Website", url: "https://berkeleyautomation.github.io/omni-scan/" },
-              // { text: "arXiv", url: "https://arxiv.org/abs/2505.10000" },
+              { text: "arXiv", url: "https://arxiv.org/abs/2508.00354" },
             ],
             summary: "Omni-Scan uses a bimanual robot to pick up and scan objects from multiple viewpoints, then it hands off the object to the other arm getting views of previously occluded points. These scans are then merged into a single, visually-accurate 3DGS model.",
             highlighted: false,
@@ -246,7 +293,19 @@
                         })
                         .join(", ") + ".<br>"
                 }
-                <span style="font-weight: 450">${paper.conference.replace("Oral Presentation", '<span style="color: red;font-weight: bold; background: yellow;">Oral Presentation</span>')}</span>
+                <span style="font-weight: 450">
+                  ${
+                    paper.conference
+                      .replace(
+                        "Oral Presentation",
+                        '<span style="color: red; font-weight: bold; background: yellow; padding: 0 0.2em; border-radius: 0.2em;">Oral Presentation</span>'
+                      )
+                      .replace(
+                        "Spotlight",
+                        '<span style="color: red; font-weight: bold; background: yellow; padding: 0 0.2em; border-radius: 0.2em;">Spotlight</span>'
+                      )
+                  }
+                </span>
 
                 <div style="height: 0.375em"></div>
                 ${paper.links
